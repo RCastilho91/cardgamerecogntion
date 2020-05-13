@@ -1,16 +1,16 @@
-# cardgamerecognition
+# Overview
 This repository is focused on building a Machine Learning model for recognizing playing cards and other specific needs of card game 'Tranca'.
 
 The goal is to build a recognition algorithm that correctly identifies the cards and sequences (see item 4.1 in the explanatory part below) in a picture, subsequently calling in the scoring algorithm (also included in this repository as contador_tranca.py).
 
-THE GAME OF 'TRANCA'
+# THE GAME OF 'TRANCA'
 
-1. Players
+## 1. Players
 
 The game can be played between 2 (individually), 3 (individually), 4 (in pairs) or 6 people (in trios).
 
 
-2. Sets of cards
+## 2. Sets of cards
 
 
 The game is played with regular sets of cards, excluding Jokers.
@@ -19,13 +19,13 @@ The game is played with regular sets of cards, excluding Jokers.
 A game with up to 4 players will be played with 2 sets of cards. 6 players will require 3 sets of cards.
 
 
-3. Objectives
+## 3. Objectives
 
 
 The goal of each individual, pair or trio is to sum the greatest amount of points through any given quantity of rounds, ending when they reach at least 3,500 points (up to 4 players) or 5,000 points (6 players).
 
 
-4. Game structure and strategy
+## 4. Game structure and strategy
 
 
 'Tranca' is played by forming sequences of 3 or more cards, equal or subsequent to each other, until the player runs out of cards in their hand. Once a player is out of their first hand, they pick up one of the two available mortos (second set of 11 cards) and continues playing. Once the player depletes their morto, the round is over.
@@ -43,7 +43,7 @@ A player that successfully depleted their morto by using the last card in their 
 The main strategy of the game is to create sequences of 7 or more cards, which are called canastras.
 
 
-4.1. Canastras
+### 4.1. Canastras
 
 Canastras are point boosters. They are sequences of 7 or more cards of the same suit (excluding any eventual 2s used as jokers, which can be of any suit). Canastras made of the same card are also equally valid, such as 7 Kings (or 6 Kings and a 2).
 
@@ -66,7 +66,7 @@ A canastra made exclusively of 2's is worth 1,000 points. It is strongly recomme
 As a canastra is composed of 7 or more cards, when there are 4 players or less, it is recommended (for game quality purposes) that sequences of a same card are limited to the "edges" (namely 4, 5, King and Ace). Building a canastra would require that you obtain at least 6 of the 8 cards similar available (plus a 2, as joker), making it unlikely for the canastra to be completed and impairing all players' possibilities in making a "horizontal" sequence.
 
 
-4.2. Dollars
+### 4.2. Dollars
 
 A dollar is a red 3, meaning it could be hearts or diamonds. Each dollar could help or damage a player's score at the end of the round. Dollars are laid separately from the players' sequences. Dollars cannot be used as part if one's sequence (such as 3, 4, 5...).
 
@@ -74,7 +74,7 @@ A dollar is a red 3, meaning it could be hearts or diamonds. Each dollar could h
 Any player who has a dollar will need to have a canastra when the round ends. If they have a canastra, each dollar will be worth an extra 100 points each. However, if the player has a dollar but was unable to form a canastra, each dollar will be worth minus 100 points.
 
 
-4.3. Twos (equivalent to jokers)
+### 4.3. Twos (equivalent to jokers)
 
 As mentioned in topic 4.1, all 2 cards can be used as jokers. That means they can take over the position of any given card in a sequence, limited to 1 in each sequence.
 
@@ -82,7 +82,7 @@ As mentioned in topic 4.1, all 2 cards can be used as jokers. That means they ca
 5, 6, 7, 2, 9, 10, J is an example of a valid sequence using a 2 to replace an 8. This is also an example of a dirty canastra, worth 100 points.
 
 
-4.4. Discard pile
+### 4.4. Discard pile
 
 The discard pile may eventually have several useful cards.
 
@@ -109,7 +109,7 @@ Example 2: Player B has a Jack of clubs and a 2 of diamonds in their hand, and t
 Aside from the above given examples, a player may not pick up from the discard pile.
 
 
-4.5. Trancas
+### 4.5. Trancas
 
 Black suited 3s (clubs or spades) negatively impact a player's score if they end the round with one in their hands. A tranca is worth -100 points. They cannot be used in any sequences (such as 3, 4, 5...).
 
@@ -117,7 +117,7 @@ Black suited 3s (clubs or spades) negatively impact a player's score if they end
 They can be strategically used to keep the next player from picking the discard pile, as they cannot be directly picked up for having no direct use.
 
 
-5. Game setup
+## 5. Game setup
 
 Whenever playing with 4 or 6 people, the players should sit in an intermittent fashion to their teammates (meaning a Team A player would be followed by a Team B player, who is followed by a Team A player and so on).
 
@@ -140,7 +140,7 @@ All cards that have not been used can now be put in a stock, face down, at arms 
 Once all players have 11 cards in their hands, the morto is separated and the stock is within players' range, the game is ready to begin.
 
 
-6. Playing the game
+## 6. Playing the game
 
 'Tranca' is played clockwise, meaning the first player will be that to the left of the one who shuffled and distributed the main cards.
 
@@ -163,7 +163,7 @@ Once a player ends their turn, the player to their left will start theirs. The r
 Once the round is over, the player to start will now shuffle and deal the main cards and will be the last to play. The player to their right will deal the morto.
 
 
-7. Scoring
+## 7. Scoring
 
 Cards laid out in front of the players will count positively, while the ones in their hands will count negatively towards the score.
 
@@ -186,7 +186,7 @@ Trancas (-100 points): a player may eventually finish the round without having b
 Final move (+100 points): if a player manages to make the last move in a round, discarding or using their last card and there is no more morto to get acquired, the player or team will be awarded an extra 100 points.
 
 
-Counting cards:
+## 8. Counting cards:
 
 
 Aces: are worth +15 points each;
@@ -200,6 +200,7 @@ Two: are worth +10 points each;
 Dollars: the card themselves are worth +5 points, even if no canastra was built to generate its booster effect;
 
 
+## 9. Game end
 The final score will be the sum of the boosters and the sequences laid out in front of a player/team, minus what they have on their hands.
 
 
